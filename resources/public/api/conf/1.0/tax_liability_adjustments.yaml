@@ -1,0 +1,15 @@
+get:
+  $ref: "./tax_liability_adjustments_retrieve.yaml"
+  security:
+    - User-Restricted:
+      - read:self-assessment
+put:
+  $ref: "./tax_liability_adjustments_create_or_amend.yaml"
+  security:
+    - User-Restricted:
+      - write:self-assessment
+delete:
+  $ref: "./tax_liability_adjustments_delete.yaml"
+  security:
+    - User-Restricted:
+      - write:self-assessment
