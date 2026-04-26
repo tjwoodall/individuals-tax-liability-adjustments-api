@@ -2,7 +2,7 @@ openapi: "3.0.3"
 
 info:
   version: "1.0"
-  title: Individuals Tax Liability Adjustments (MTD)
+  title: Individuals Tax Liability Adjustments (MTD){{#maybeTestOnly "1.0 individual-tax-liability-adjustments"}}{{/maybeTestOnly}}
   description: |
     The following endpoints are stateful in the Sandbox:
       * Retrieve Tax Liability Adjustments    
