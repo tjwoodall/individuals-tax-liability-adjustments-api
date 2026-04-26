@@ -1,4 +1,4 @@
-summary: Create or Amend Tax Liability Adjustments
+summary: Create or Amend Tax Liability Adjustments{{#maybeTestOnly "1.0 create-or-amend-tax-liability-adjustments"}}{{/maybeTestOnly}}
 description: |
   This endpoint allows a developer to create or amend tax liability adjustments for a specified individual for a given tax year.
   A National Insurance number and tax year are required.
