@@ -207,7 +207,7 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
       .expects(*, *, *)
       .returns(Future.successful(Success))
 
-    val configuration: Configuration = Configuration(
+    private val configuration: Configuration = Configuration(
       "appName"                                         -> "myApp",
       "bootstrap.errorHandler.warnOnly.statusCodes"     -> List(OK),
       "bootstrap.errorHandler.suppress4xxErrorMessages" -> false,
