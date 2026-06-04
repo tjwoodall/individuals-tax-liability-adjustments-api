@@ -25,7 +25,7 @@ import play.api.mvc.{AnyContent, RequestHeader, Result}
 import play.api.test.FakeRequest
 import play.api.test.Helpers.*
 import uk.gov.hmrc.auth.core.InsufficientEnrolments
-import uk.gov.hmrc.http.{HeaderCarrier, JsValidationException, NotFoundException, UpstreamErrorResponse}
+import uk.gov.hmrc.http.*
 import uk.gov.hmrc.play.audit.http.connector.AuditConnector
 import uk.gov.hmrc.play.audit.http.connector.AuditResult.Success
 import uk.gov.hmrc.play.audit.model.{DataEvent, TruncationLog}
@@ -40,7 +40,7 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
 
   "onClientError" should {
     "return 404 with error body" when {
-      s"URI not found" in new Test {
+      "URI not found" in new Test {
 
         val result: Future[Result] = handler.onClientError(requestHeader, Status.NOT_FOUND, "test")
         status(result) shouldBe Status.NOT_FOUND
@@ -158,6 +158,13 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
     }
 
     "return GATEWAY_TIMEOUT with error body" when {
+      "GatewayTimeoutException is thrown" in new Test {
+        val result: Future[Result] = handler.onServerError(requestHeader, new GatewayTimeoutException("test") with NoStackTrace)
+
+        status(result) shouldBe GATEWAY_TIMEOUT
+        contentAsJson(result) shouldBe GatewayTimeoutError.asJson
+      }
+
       Seq(499, GATEWAY_TIMEOUT).foreach { statusCode =>
         s"a $statusCode UpstreamErrorResponse is returned" in new Test {
           val errorResponse: UpstreamErrorResponse = UpstreamErrorResponse("request timeout", statusCode, statusCode, Map.empty)
