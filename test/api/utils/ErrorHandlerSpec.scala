@@ -179,17 +179,16 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
 
   def anyVersionHeader: (String, String) = ACCEPT -> s"application/vnd.hmrc.1.0+json"
 
-  class Test {
-    val method = "some-method"
+  private trait Test {
 
     val requestHeader: FakeRequest[AnyContent] = FakeRequest().withHeaders(anyVersionHeader)
 
-    val auditConnector: AuditConnector = mock[AuditConnector]
-    val httpAuditEvent: HttpAuditEvent = mock[HttpAuditEvent]
+    private val auditConnector: AuditConnector = mock[AuditConnector]
+    private val httpAuditEvent: HttpAuditEvent = mock[HttpAuditEvent]
 
-    val eventTags: Map[String, String] = Map("transactionName" -> "event.transactionName")
+    private val eventTags: Map[String, String] = Map("transactionName" -> "event.transactionName")
 
-    val dataEvent: DataEvent = DataEvent(
+    private val dataEvent: DataEvent = DataEvent(
       auditSource = "auditSource",
       auditType = "event.auditType",
       eventId = "",
