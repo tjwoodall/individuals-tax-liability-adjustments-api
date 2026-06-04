@@ -25,7 +25,7 @@ import play.api.mvc.{AnyContent, RequestHeader, Result}
 import play.api.test.FakeRequest
 import play.api.test.Helpers.*
 import uk.gov.hmrc.auth.core.InsufficientEnrolments
-import uk.gov.hmrc.http.{HeaderCarrier, JsValidationException, NotFoundException, UpstreamErrorResponse}
+import uk.gov.hmrc.http.*
 import uk.gov.hmrc.play.audit.http.connector.AuditConnector
 import uk.gov.hmrc.play.audit.http.connector.AuditResult.Success
 import uk.gov.hmrc.play.audit.model.{DataEvent, TruncationLog}
@@ -40,7 +40,7 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
 
   "onClientError" should {
     "return 404 with error body" when {
-      s"URI not found" in new Test {
+      "URI not found" in new Test {
 
         val result: Future[Result] = handler.onClientError(requestHeader, Status.NOT_FOUND, "test")
         status(result) shouldBe Status.NOT_FOUND
@@ -158,6 +158,13 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
     }
 
     "return GATEWAY_TIMEOUT with error body" when {
+      "GatewayTimeoutException is thrown" in new Test {
+        val result: Future[Result] = handler.onServerError(requestHeader, new GatewayTimeoutException("test") with NoStackTrace)
+
+        status(result) shouldBe GATEWAY_TIMEOUT
+        contentAsJson(result) shouldBe GatewayTimeoutError.asJson
+      }
+
       Seq(499, GATEWAY_TIMEOUT).foreach { statusCode =>
         s"a $statusCode UpstreamErrorResponse is returned" in new Test {
           val errorResponse: UpstreamErrorResponse = UpstreamErrorResponse("request timeout", statusCode, statusCode, Map.empty)
@@ -172,17 +179,16 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
 
   def anyVersionHeader: (String, String) = ACCEPT -> s"application/vnd.hmrc.1.0+json"
 
-  class Test {
-    val method = "some-method"
+  private trait Test {
 
     val requestHeader: FakeRequest[AnyContent] = FakeRequest().withHeaders(anyVersionHeader)
 
-    val auditConnector: AuditConnector = mock[AuditConnector]
-    val httpAuditEvent: HttpAuditEvent = mock[HttpAuditEvent]
+    private val auditConnector: AuditConnector = mock[AuditConnector]
+    private val httpAuditEvent: HttpAuditEvent = mock[HttpAuditEvent]
 
-    val eventTags: Map[String, String] = Map("transactionName" -> "event.transactionName")
+    private val eventTags: Map[String, String] = Map("transactionName" -> "event.transactionName")
 
-    val dataEvent: DataEvent = DataEvent(
+    private val dataEvent: DataEvent = DataEvent(
       auditSource = "auditSource",
       auditType = "event.auditType",
       eventId = "",
@@ -201,7 +207,7 @@ class ErrorHandlerSpec extends UnitSpec with GuiceOneAppPerSuite {
       .expects(*, *, *)
       .returns(Future.successful(Success))
 
-    val configuration: Configuration = Configuration(
+    private val configuration: Configuration = Configuration(
       "appName"                                         -> "myApp",
       "bootstrap.errorHandler.warnOnly.statusCodes"     -> List(OK),
       "bootstrap.errorHandler.suppress4xxErrorMessages" -> false,
