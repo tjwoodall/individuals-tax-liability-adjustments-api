@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: "Individuals Tax Liability Adjustments (MTD) [test only]"
+  title: Individuals Tax Liability Adjustments (MTD)
   description: "The following endpoints are stateful in the Sandbox:\n  * Retrieve\
     \ Tax Liability Adjustments    \n  * Create or Amend Tax Liability Adjustments\n\
     \  * Delete Tax Liability Adjustments\n\n# Send fraud prevention data\nHMRC monitors\
