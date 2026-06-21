@@ -1,4 +1,4 @@
-summary: "Delete Tax Liability Adjustments [test only]"
+summary: Delete Tax Liability Adjustments
 description: |
   This endpoint allows a developer to delete tax liability adjustments for a specified individual for a given tax year.
   A National Insurance number and tax year are required.
