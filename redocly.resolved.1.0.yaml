@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   version: '1.0'
-  title: Individuals Tax Liability Adjustments (MTD) [test only]
+  title: Individuals Tax Liability Adjustments (MTD)
   description: |
     The following endpoints are stateful in the Sandbox:
       * Retrieve Tax Liability Adjustments    
@@ -42,7 +42,7 @@ paths:
       security:
         - User-Restricted:
             - read:self-assessment
-      summary: Retrieve Tax Liability Adjustments [test only]
+      summary: Retrieve Tax Liability Adjustments
       description: |
         This endpoint allows a developer to retrieve tax liability adjustments for a specified individual for a given tax year.
         A National Insurance number and tax year are required.
@@ -353,7 +353,7 @@ paths:
       security:
         - User-Restricted:
             - write:self-assessment
-      summary: Create or Amend Tax Liability Adjustments [test only]
+      summary: Create or Amend Tax Liability Adjustments
       description: |
         This endpoint allows a developer to create or amend tax liability adjustments for a specified individual for a given tax year.
         A National Insurance number and tax year are required.
@@ -619,7 +619,7 @@ paths:
       security:
         - User-Restricted:
             - write:self-assessment
-      summary: Delete Tax Liability Adjustments [test only]
+      summary: Delete Tax Liability Adjustments
       description: |
         This endpoint allows a developer to delete tax liability adjustments for a specified individual for a given tax year.
         A National Insurance number and tax year are required.
