@@ -1,38 +1,70 @@
 Individuals Tax Liability Adjustments API
 ========================
 
+
+[![Apache-2.0 license](http://img.shields.io/badge/license-Apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
 The Individuals Tax Liability Adjustments API allows a developer to retrieve, create or amend, and delete data
 relating to tax liability adjustments.
 
 ## Requirements
 
 - Scala 3.5.x
-- Java 11
+- Java 21
 - sbt 1.10.x
-- [Service Manager 2](https://github.com/hmrc/sm2)
+- [Service Manager V2](https://github.com/hmrc/sm2)
 
-## Running the microservice
+## Development Setup
 
-Run from the console using: `sbt run` (starts on port 7767 by default)
+Run the microservice from the console using: `sbt run` (starts on port 7767 by default)
 
-Start the service manager profile: `sm2 --start MTDFB_INDIVIDUALS_TAX_LIABILITY_ADJUSTMENTS`
+Start the service manager profile:
 
-## Running test
+```bash
+sm2 -start MTDFB_INDIVIDUALS_TAX_LIABILITY_ADJUSTMENTS
+```
+
+## Run Tests
 
 Run unit tests: `sbt test`
 
 Run integration tests: `sbt it/test`
 
-## Viewing Open API Spec (OAS) docs
+## View OpenAPI Specification (OAS) documentation
 
-To view documentation locally ensure the Individuals Tax Liability Adjustments API is running, and run api-documentation-frontend:
-`./run_local_with_dependencies.sh`
+To view the OpenAPI documentation locally, ensure the API is running.
 
-Then go to http://localhost:9680/api-documentation/docs/openapi/preview and use this port and version:
-`http://localhost:7767/api/conf/1.0/application.yaml`
+Start the `api-documentation-frontend` and `api-definition` services using the Service Manager profile:
+
+```bash
+sm2 -start DEVHUB_PREVIEW_OPENAPI
+```
+
+Then navigate to the preview page:
+
+```text
+http://localhost:9680/api-documentation/docs/openapi/preview
+```
+
+Enter the specification URL using the appropriate port and API version:
+
+```text
+http://localhost:7767/api/conf/1.0/application.yaml
+```
 
 ## Changelog
 
 You can see our changelog [here](https://github.com/hmrc/income-tax-mtd-changelog)
 
 ## Support and Reporting Issues
+
+You can create a GitHub issue [here](https://github.com/hmrc/income-tax-mtd-changelog/issues)
+
+
+## API Reference / Documentation
+
+Available on the [HMRC Developer Hub](https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/individuals-tax-liability-adjustments-api)
+
+## License
+
+This code is open source software licensed under the [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html)
