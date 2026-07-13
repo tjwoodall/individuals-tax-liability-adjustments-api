@@ -4,5 +4,10 @@
     "incomeTax": 5000.99,
     "class4": 5000.99,
     "capitalGainsTax": 5000.99
+  },
+  {{#if (enabled 'r22_cl289_docs')}}
+  "taxRefundedOrSetOff": {
+      "amount": 5000.99
   }
+  {{/if}}
 }
