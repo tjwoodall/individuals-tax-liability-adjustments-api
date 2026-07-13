@@ -18,7 +18,7 @@ package v1.retrieve.def1.fixture
 
 import api.models.domain.Timestamp
 import play.api.libs.json.{JsValue, Json}
-import v1.retrieve.def1.model.response.{CarryBackLossesDecrease, Def1_RetrieveTaxLiabilityAdjustmentsResponse}
+import v1.retrieve.def1.model.response.{CarryBackLossesDecrease, Def1_RetrieveTaxLiabilityAdjustmentsResponse, TaxRefundedOrSetOff}
 import v1.retrieve.model.response.RetrieveTaxLiabilityAdjustmentsResponse
 
 object Def1_RetrieveTaxLiabilityAdjustmentsFixture {
@@ -31,6 +31,9 @@ object Def1_RetrieveTaxLiabilityAdjustmentsFixture {
       |    "incomeTax": 5000.99,
       |    "class4": 5000.99,
       |    "capitalGainsTax": 5000.99
+      |  },
+      |  "taxRefundedOrSetOff": {
+      |     "amount": 5000.99
       |  }
       |}
     """.stripMargin
@@ -42,8 +45,11 @@ object Def1_RetrieveTaxLiabilityAdjustmentsFixture {
     capitalGainsTax = Some(5000.99)
   )
 
+  val taxRefundedOrSetOff: TaxRefundedOrSetOff = TaxRefundedOrSetOff(amount = Some(5000.99))
+
   val response: RetrieveTaxLiabilityAdjustmentsResponse = Def1_RetrieveTaxLiabilityAdjustmentsResponse(
     submittedOn = Timestamp("2026-08-24T14:15:22.544Z"),
-    carryBackLossesDecrease = Some(carryBackLossesDecrease))
+    carryBackLossesDecrease = Some(carryBackLossesDecrease),
+    taxRefundedOrSetOff = Some(taxRefundedOrSetOff))
 
 }

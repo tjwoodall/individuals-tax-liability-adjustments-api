@@ -16,18 +16,10 @@
 
 package v1.retrieve.def1.model.response
 
-import api.models.domain.Timestamp
 import play.api.libs.json.{Json, OFormat}
-import v1.retrieve.model.response.RetrieveTaxLiabilityAdjustmentsResponse
 
-case class Def1_RetrieveTaxLiabilityAdjustmentsResponse(submittedOn: Timestamp,
-                                                        carryBackLossesDecrease: Option[CarryBackLossesDecrease],
-                                                        taxRefundedOrSetOff: Option[TaxRefundedOrSetOff])
-    extends RetrieveTaxLiabilityAdjustmentsResponse
+case class TaxRefundedOrSetOff(amount: Option[BigDecimal])
 
-object Def1_RetrieveTaxLiabilityAdjustmentsResponse {
-
-  implicit val format: OFormat[Def1_RetrieveTaxLiabilityAdjustmentsResponse] =
-    Json.format[Def1_RetrieveTaxLiabilityAdjustmentsResponse]
-
+object TaxRefundedOrSetOff {
+  implicit val format: OFormat[TaxRefundedOrSetOff] = Json.format[TaxRefundedOrSetOff]
 }
