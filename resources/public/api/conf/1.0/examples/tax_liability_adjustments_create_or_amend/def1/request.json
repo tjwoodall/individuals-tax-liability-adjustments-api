@@ -3,5 +3,8 @@
     "incomeTax": 5000.99,
     "class4": 5000.99,
     "capitalGainsTax": 5000.99
-  }
+  },
+  "taxRefundedOrSetOff": {
+    "amount": 5000.99
+}
 }
