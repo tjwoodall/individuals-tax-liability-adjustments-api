@@ -17,7 +17,7 @@
 package v1.createAmend.def1.fixture
 
 import play.api.libs.json.{JsValue, Json}
-import v1.createAmend.def1.model.request.{CarryBackLossesDecrease, Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody}
+import v1.createAmend.def1.model.request.{CarryBackLossesDecrease, Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody, TaxRefundedOrSetOff}
 
 object Def1_CreateAmendTaxLiabilityAdjustmentsFixture {
 
@@ -35,12 +35,19 @@ object Def1_CreateAmendTaxLiabilityAdjustmentsFixture {
       |    "incomeTax": 5000.99,
       |    "class4": 5000.99,
       |    "capitalGainsTax": 5000.99
+      |  },
+      |  "taxRefundedOrSetOff": {
+      |     "amount": 5000.99
       |  }
       |}
     """.stripMargin
   )
 
+  val taxRefundedOrSetOff: TaxRefundedOrSetOff = TaxRefundedOrSetOff(amount = Some(5000.99))
+
   val requestBodyModel: Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody =
-    Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody(carryBackLossesDecrease = Some(carryBackLossesDecrease))
+    Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody(
+      carryBackLossesDecrease = Some(carryBackLossesDecrease),
+      taxRefundedOrSetOff = Some(taxRefundedOrSetOff))
 
 }

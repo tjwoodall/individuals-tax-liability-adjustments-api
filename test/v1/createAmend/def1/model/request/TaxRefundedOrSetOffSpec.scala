@@ -16,16 +16,30 @@
 
 package v1.createAmend.def1.model.request
 
-import play.api.libs.json.{Json, OFormat}
-import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestBody
+import api.utils.UnitSpec
+import play.api.libs.json.*
+import v1.createAmend.def1.fixture.Def1_CreateAmendTaxLiabilityAdjustmentsFixture.taxRefundedOrSetOff
 
-case class Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody(carryBackLossesDecrease: Option[CarryBackLossesDecrease],
-                                                              taxRefundedOrSetOff: Option[TaxRefundedOrSetOff])
-    extends CreateAmendTaxLiabilityAdjustmentsRequestBody
+class TaxRefundedOrSetOffSpec extends UnitSpec {
 
-object Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody {
+  val json: JsObject = Json.obj(
+    "amount" -> 5000.99
+  )
 
-  implicit val format: OFormat[Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody] =
-    Json.format[Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody]
+  "TaxRefundedOrSetOff" when {
+
+    "read from JSON" should {
+      "return the parsed object" in {
+        json.as[TaxRefundedOrSetOff] shouldBe taxRefundedOrSetOff
+      }
+    }
+
+    "written to JSON" should {
+      "produce the expected JSON" in {
+        Json.toJson(taxRefundedOrSetOff) shouldBe json
+      }
+    }
+
+  }
 
 }

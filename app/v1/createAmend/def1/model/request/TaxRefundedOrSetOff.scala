@@ -17,15 +17,9 @@
 package v1.createAmend.def1.model.request
 
 import play.api.libs.json.{Json, OFormat}
-import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestBody
 
-case class Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody(carryBackLossesDecrease: Option[CarryBackLossesDecrease],
-                                                              taxRefundedOrSetOff: Option[TaxRefundedOrSetOff])
-    extends CreateAmendTaxLiabilityAdjustmentsRequestBody
+case class TaxRefundedOrSetOff(amount: Option[BigDecimal])
 
-object Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody {
-
-  implicit val format: OFormat[Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody] =
-    Json.format[Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody]
-
+object TaxRefundedOrSetOff {
+  implicit val format: OFormat[TaxRefundedOrSetOff] = Json.format[TaxRefundedOrSetOff]
 }
