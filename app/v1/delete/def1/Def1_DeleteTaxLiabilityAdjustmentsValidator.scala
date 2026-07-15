@@ -18,11 +18,11 @@ package v1.delete.def1
 
 import api.controllers.validators.Validator
 import api.controllers.validators.resolvers.ResolveNino
+import api.models.domain.TaxYear
 import api.models.errors.MtdError
 import cats.data.Validated
-import api.models.domain.TaxYear
-import v1.delete.model.request.DeleteTaxLiabilityAdjustmentsRequestData
 import v1.delete.def1.model.request.Def1_DeleteTaxLiabilityAdjustmentsRequestData
+import v1.delete.model.request.DeleteTaxLiabilityAdjustmentsRequestData
 
 import javax.inject.Inject
 

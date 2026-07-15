@@ -17,18 +17,17 @@
 package v1.retrieve
 
 import api.connectors.{ConnectorSpec, DownstreamOutcome}
+import api.models.domain.{Nino, TaxYear}
+import api.models.errors.{DownstreamErrorCode, DownstreamErrors}
+import api.models.outcomes.ResponseWrapper
 import uk.gov.hmrc.http.StringContextOps
+import v1.retrieve.def1.fixture.Def1_RetrieveTaxLiabilityAdjustmentsFixture.response
 import v1.retrieve.def1.model.request.Def1_RetrieveTaxLiabilityAdjustmentsRequestData
 import v1.retrieve.model.request.RetrieveTaxLiabilityAdjustmentsRequestData
 import v1.retrieve.model.response.RetrieveTaxLiabilityAdjustmentsResponse
 
-import scala.concurrent.Future
-import api.models.domain.{Nino, TaxYear}
-import api.models.errors.{DownstreamErrorCode, DownstreamErrors}
-import api.models.outcomes.ResponseWrapper
-import v1.retrieve.def1.fixture.Def1_RetrieveTaxLiabilityAdjustmentsFixture.response
-
 import java.net.URL
+import scala.concurrent.Future
 
 class RetrieveTaxLiabilityAdjustmentsConnectorSpec extends ConnectorSpec {
 

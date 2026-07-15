@@ -16,10 +16,10 @@
 
 package v1.delete
 
+import api.controllers.validators.resolvers.ResolveDetailedTaxYear
 import api.models.domain.TaxYear
 import api.models.errors.MtdError
 import cats.data.Validated
-import api.controllers.validators.resolvers.ResolveDetailedTaxYear
 
 sealed trait DeleteTaxLiabilityAdjustmentsSchema
 

@@ -18,14 +18,14 @@ package v1.createAmend.def1
 
 import api.controllers.validators.Validator
 import api.controllers.validators.resolvers.{ResolveNino, ResolveNonEmptyJsonObject}
+import api.models.domain.TaxYear
 import api.models.errors.MtdError
 import cats.data.Validated
-import api.models.domain.TaxYear
 import cats.implicits.catsSyntaxTuple2Semigroupal
 import play.api.libs.json.JsValue
 import v1.createAmend.def1.Def1_CreateAmendTaxLiabilityAdjustmentsRulesValidator.validateBusinessRules
-import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestData
 import v1.createAmend.def1.model.request.{Def1_CreateAmendTaxLiabilityAdjustmentsRequestBody, Def1_CreateAmendTaxLiabilityAdjustmentsRequestData}
+import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestData
 
 import javax.inject.Inject
 

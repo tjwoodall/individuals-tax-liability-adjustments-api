@@ -16,13 +16,13 @@
 
 package v1.retrieve.def1
 
-import cats.data.Validated
 import api.controllers.validators.Validator
 import api.controllers.validators.resolvers.ResolveNino
-import api.models.errors.MtdError
 import api.models.domain.TaxYear
-import v1.retrieve.model.request.RetrieveTaxLiabilityAdjustmentsRequestData
+import api.models.errors.MtdError
+import cats.data.Validated
 import v1.retrieve.def1.model.request.Def1_RetrieveTaxLiabilityAdjustmentsRequestData
+import v1.retrieve.model.request.RetrieveTaxLiabilityAdjustmentsRequestData
 
 import javax.inject.Inject
 

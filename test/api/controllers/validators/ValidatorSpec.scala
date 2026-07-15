@@ -114,10 +114,10 @@ class ValidatorSpec extends UnitSpec with MockFactory {
           Valid("any value"),
           Valid("any other value"),
           Invalid(List(NinoFormatError)),
-          Invalid(List(DateFormatError))
+          Invalid(List(ValueFormatError))
         )
 
-        result shouldBe Invalid(List(NinoFormatError, DateFormatError))
+        result shouldBe Invalid(List(NinoFormatError, ValueFormatError))
       }
     }
 

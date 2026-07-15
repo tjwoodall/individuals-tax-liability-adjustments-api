@@ -18,9 +18,9 @@ package v1.createAmend
 
 import api.config.{AppConfig, ConfigFeatureSwitches}
 import api.controllers.*
+import api.routing.Version
 import api.services.{AuditService, EnrolmentsAuthService, MtdIdLookupService}
 import api.utils.IdGenerator
-import api.routing.Version
 import play.api.libs.json.JsValue
 import play.api.mvc.{Action, ControllerComponents}
 

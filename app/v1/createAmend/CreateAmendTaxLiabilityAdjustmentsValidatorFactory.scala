@@ -18,9 +18,10 @@ package v1.createAmend
 
 import api.controllers.validators.Validator
 import cats.data.Validated.{Invalid, Valid}
-import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestData
-import v1.createAmend.def1.Def1_CreateAmendTaxLiabilityAdjustmentsValidator
 import play.api.libs.json.JsValue
+import v1.createAmend.def1.Def1_CreateAmendTaxLiabilityAdjustmentsValidator
+import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestData
+
 import javax.inject.Singleton
 
 @Singleton

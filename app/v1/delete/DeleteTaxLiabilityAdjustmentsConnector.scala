@@ -17,10 +17,10 @@
 package v1.delete
 
 import api.config.AppConfig
-import api.connectors.{BaseDownstreamConnector, DownstreamOutcome}
-import api.connectors.httpparsers.StandardDownstreamHttpParser.*
-import uk.gov.hmrc.http.HeaderCarrier
 import api.connectors.DownstreamUri.HipUri
+import api.connectors.httpparsers.StandardDownstreamHttpParser.*
+import api.connectors.{BaseDownstreamConnector, DownstreamOutcome}
+import uk.gov.hmrc.http.HeaderCarrier
 import uk.gov.hmrc.http.client.HttpClientV2
 import v1.delete.model.request.DeleteTaxLiabilityAdjustmentsRequestData
 

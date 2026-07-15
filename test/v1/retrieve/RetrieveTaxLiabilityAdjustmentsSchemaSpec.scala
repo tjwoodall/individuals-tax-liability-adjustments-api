@@ -16,11 +16,11 @@
 
 package v1.retrieve
 
+import api.models.domain.{TaxYear, TaxYearPropertyCheckSupport}
+import api.models.errors.{RuleTaxYearNotSupportedError, RuleTaxYearRangeInvalidError, TaxYearFormatError}
+import api.utils.UnitSpec
 import cats.data.Validated.{Invalid, Valid}
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
-import api.models.domain.{TaxYear, TaxYearPropertyCheckSupport}
-import api.utils.UnitSpec
-import api.models.errors.{RuleTaxYearNotSupportedError, RuleTaxYearRangeInvalidError, TaxYearFormatError}
 import v1.retrieve.RetrieveTaxLiabilityAdjustmentsSchema.{Def1, schemaFor}
 
 class RetrieveTaxLiabilityAdjustmentsSchemaSpec extends UnitSpec with ScalaCheckDrivenPropertyChecks with TaxYearPropertyCheckSupport {

@@ -16,11 +16,11 @@
 
 package v1.createAmend
 
-import api.models.domain.{Nino, TaxYear}
 import api.connectors.ConnectorSpec
+import api.models.domain.{Nino, TaxYear}
 import api.models.outcomes.ResponseWrapper
-import def1.fixture.Def1_CreateAmendTaxLiabilityAdjustmentsFixture.requestBodyModel
 import uk.gov.hmrc.http.StringContextOps
+import v1.createAmend.def1.fixture.Def1_CreateAmendTaxLiabilityAdjustmentsFixture.requestBodyModel
 import v1.createAmend.def1.model.request.Def1_CreateAmendTaxLiabilityAdjustmentsRequestData
 import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestData
 

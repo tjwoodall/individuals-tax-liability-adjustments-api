@@ -16,8 +16,8 @@
 
 package api.controllers
 
-import api.config.rewriters.DocumentationRewriters.CheckAndRewrite
 import api.config.rewriters.*
+import api.config.rewriters.DocumentationRewriters.CheckAndRewrite
 import api.config.{MockAppConfig, RealAppConfig}
 import api.definition.*
 import api.routing.{Version, Versions}

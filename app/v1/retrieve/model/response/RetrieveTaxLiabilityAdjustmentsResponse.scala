@@ -16,8 +16,8 @@
 
 package v1.retrieve.model.response
 
-import play.api.libs.json.OWrites
 import api.utils.JsonWritesUtil.writesFrom
+import play.api.libs.json.OWrites
 import v1.retrieve.def1.model.response.Def1_RetrieveTaxLiabilityAdjustmentsResponse
 
 trait RetrieveTaxLiabilityAdjustmentsResponse

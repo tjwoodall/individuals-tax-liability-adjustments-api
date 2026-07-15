@@ -18,9 +18,9 @@ package v1.delete
 
 import api.config.AppConfig
 import api.controllers.*
+import api.routing.Version
 import api.services.{AuditService, EnrolmentsAuthService, MtdIdLookupService}
 import api.utils.IdGenerator
-import api.routing.Version
 import play.api.mvc.{Action, AnyContent, ControllerComponents}
 
 import javax.inject.{Inject, Singleton}

@@ -16,8 +16,8 @@
 
 package v1.retrieve
 
-import api.services.{AuditStub, AuthStub, DownstreamStub, MtdIdLookupStub}
 import api.models.errors.*
+import api.services.{AuditStub, AuthStub, DownstreamStub, MtdIdLookupStub}
 import api.support.IntegrationBaseSpec
 import play.api.libs.json.{JsValue, Json}
 import play.api.libs.ws.{WSRequest, WSResponse}

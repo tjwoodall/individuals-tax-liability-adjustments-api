@@ -16,8 +16,8 @@
 
 package v1.retrieve
 
-import api.utils.UnitSpec
 import api.controllers.validators.AlwaysErrorsValidator
+import api.utils.UnitSpec
 import v1.retrieve.def1.Def1_RetrieveTaxLiabilityAdjustmentsValidator
 
 class RetrieveTaxLiabilityAdjustmentsValidatorFactorySpec extends UnitSpec {

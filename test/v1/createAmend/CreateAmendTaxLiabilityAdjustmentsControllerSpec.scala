@@ -23,11 +23,11 @@ import api.models.errors.{ErrorWrapper, NinoFormatError, RuleOutsideAmendmentWin
 import api.models.outcomes.ResponseWrapper
 import play.api.Configuration
 import play.api.libs.json.{JsValue, Json}
-import play.test.Helpers.PUT
 import play.api.mvc.Result
+import play.test.Helpers.PUT
+import v1.createAmend.def1.fixture.Def1_CreateAmendTaxLiabilityAdjustmentsFixture.*
 import v1.createAmend.def1.model.request.*
 import v1.createAmend.model.request.CreateAmendTaxLiabilityAdjustmentsRequestData
-import def1.fixture.Def1_CreateAmendTaxLiabilityAdjustmentsFixture.*
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
