@@ -42,6 +42,9 @@ class CreateAmendTaxLiabilityAdjustmentsControllerISpec extends IntegrationBaseS
       |    "incomeTax": -5000.99,
       |    "class4": -5000.99,
       |    "capitalGainsTax": -5000.99
+      |  },
+      |  "taxRefundedOrSetOff": {
+      |    "amount": -5000.99
       |  }
       |}
     """.stripMargin
@@ -114,7 +117,8 @@ class CreateAmendTaxLiabilityAdjustmentsControllerISpec extends IntegrationBaseS
               Seq(
                 "/carryBackLossesDecrease/incomeTax",
                 "/carryBackLossesDecrease/class4",
-                "/carryBackLossesDecrease/capitalGainsTax"
+                "/carryBackLossesDecrease/capitalGainsTax",
+                "/taxRefundedOrSetOff/amount"
               )
             )
           )

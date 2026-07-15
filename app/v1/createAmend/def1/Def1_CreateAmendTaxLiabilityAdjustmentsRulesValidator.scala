@@ -31,7 +31,10 @@ object Def1_CreateAmendTaxLiabilityAdjustmentsRulesValidator extends RulesValida
       parsed: Def1_CreateAmendTaxLiabilityAdjustmentsRequestData): Validated[Seq[MtdError], Def1_CreateAmendTaxLiabilityAdjustmentsRequestData] = {
     import parsed.*
 
-    validateCarryBackLossesDecrease(body.carryBackLossesDecrease).onSuccess(parsed)
+    combine(
+      validateCarryBackLossesDecrease(body.carryBackLossesDecrease),
+      validateTaxRefundedOrSetOff(body.taxRefundedOrSetOff)
+    ).onSuccess(parsed)
   }
 
   private def validateCarryBackLossesDecrease(carryBackLossesDecrease: Option[CarryBackLossesDecrease]): Validated[Seq[MtdError], Unit] = {
@@ -40,6 +43,16 @@ object Def1_CreateAmendTaxLiabilityAdjustmentsRulesValidator extends RulesValida
         (carryBackLossesDecrease.incomeTax, "/carryBackLossesDecrease/incomeTax"),
         (carryBackLossesDecrease.class4, "/carryBackLossesDecrease/class4"),
         (carryBackLossesDecrease.capitalGainsTax, "/carryBackLossesDecrease/capitalGainsTax")
+      ).traverse_ { case (value, path) =>
+        resolveNonNegativeParsedNumber(value, path)
+      }
+    }
+  }
+
+  private def validateTaxRefundedOrSetOff(taxRefundedOrSetOff: Option[TaxRefundedOrSetOff]): Validated[Seq[MtdError], Unit] = {
+    taxRefundedOrSetOff.fold(valid) { taxRefundedOrSetOff =>
+      List(
+        (taxRefundedOrSetOff.amount, "/taxRefundedOrSetOff/amount")
       ).traverse_ { case (value, path) =>
         resolveNonNegativeParsedNumber(value, path)
       }

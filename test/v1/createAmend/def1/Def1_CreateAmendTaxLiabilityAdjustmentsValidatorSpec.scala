@@ -93,7 +93,8 @@ class Def1_CreateAmendTaxLiabilityAdjustmentsValidatorSpec extends UnitSpec with
       Seq(
         "/carryBackLossesDecrease/incomeTax",
         "/carryBackLossesDecrease/class4",
-        "/carryBackLossesDecrease/capitalGainsTax"
+        "/carryBackLossesDecrease/capitalGainsTax",
+        "/taxRefundedOrSetOff/amount"
       ).foreach { path =>
         s"the submitted request body has field $path with an invalid value" in {
           val invalidJson: JsValue = requestBodyJson.update(path, JsNumber(-500.99))
