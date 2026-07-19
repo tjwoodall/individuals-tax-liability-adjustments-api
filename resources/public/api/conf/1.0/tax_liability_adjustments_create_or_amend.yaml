@@ -2,6 +2,8 @@ summary: Create or Amend Tax Liability Adjustments
 description: |
   This endpoint allows a developer to create or amend tax liability adjustments for a specified individual for a given tax year.
   A National Insurance number and tax year are required.
+  **This endpoint can only be used after the tax year has ended.**
+  
   
   **Note:** When submitting adjustments for carry-back losses, the corresponding carry-back losses must also be submitted using the Create or Amend Losses and Claims endpoint in the [Individual Losses API](https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/individual-losses-api) before the final declaration.
 
