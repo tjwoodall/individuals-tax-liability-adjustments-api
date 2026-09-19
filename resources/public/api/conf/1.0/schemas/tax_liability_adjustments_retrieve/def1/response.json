@@ -38,7 +38,7 @@
         }
       },
       "additionalProperties": false
-    }
+    },
     
     "taxRefundedOrSetOff": {
       "type": "object",
